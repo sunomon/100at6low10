@@ -143,7 +143,7 @@ while True:
         elif middle3_time < now < end_time - datetime.timedelta(hours=1):
             ada = get_balance("ADA")
             current_price = get_current_price("KRW-ADA")
-            if ada > 1000000*1.001*1.03/current_price:
+            if ada > 1000000*1.001*1.03/current_price or current_price > predicted_close_price:
                 upbit.sell_market_order("KRW-ADA", ada*0.9995)  
         else:
             ada = get_balance("ADA")
